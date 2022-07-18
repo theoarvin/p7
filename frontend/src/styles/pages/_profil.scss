@@ -1,0 +1,39 @@
+.container{
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .container__block{
+    width: 40%;
+    height: 600px;
+    background-color: $color-2;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    @media (max-width:825px) {
+        width: 90%;
+    }
+    ul{
+        display: flex;
+        justify-content: space-around;
+    }
+       button{
+        margin-top: 20px;
+        width: 130px;
+        height: 40px;
+        background-color: #fff;
+        border-radius: 15px;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid #f2f2f2;
+        font-size: 19px;
+        box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+        
+       }
+       .active-btn{
+        background-color:$color-3;
+        color: #fff;
+        
+       }
+    }
+}
