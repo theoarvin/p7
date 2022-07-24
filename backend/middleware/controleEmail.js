@@ -10,6 +10,6 @@ module.exports = (req, res, next) => {
     }else{
         return res
         .status(400)
-        .json({error : `l'email ${email} n'est pas validé`})
+        .json({errorEmail : `l'email ${email} n'est pas valide`})
     }
 }

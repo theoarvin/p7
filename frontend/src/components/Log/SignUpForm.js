@@ -1,7 +1,11 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+
+
 const SignUpForm = () => {
+
+
   const {
     register,
     handleSubmit,
@@ -14,10 +18,11 @@ const SignUpForm = () => {
   });
 
   function login(value) {
+    const emailError = document.querySelector('.emailError');
+    const errorPseudo = document.querySelector('.errorPseudo');
     axios({
       method: "post",
       url: `${process.env.REACT_APP_API_URL}api/user/signup`,
-      widthCredentials: true,
       data: {
         pseudo: value.pseudo,
         email: value.email,
@@ -25,14 +30,17 @@ const SignUpForm = () => {
       },
     })
       .then((res) => {
-        if (res.data.error) {
-          console.log("err");
-        } else {
-          window.location = "/home";
-        }
+           console.log(res);
+           window.location = "/home";
       })
       .catch((err) => {
         console.log(err);
+        if (err.response.data.error.errors.pseudo){
+          errorPseudo.innerHTML = "le pseudo n'est pas disponible"
+        } else if(err.response.data.error.errors.email){
+          errorPseudo.innerHTML = ""
+          emailError.innerHTML = "Cette email n'est pas disponible"
+        }
       });
   }
 
@@ -63,6 +71,7 @@ const SignUpForm = () => {
           })}
         />
         <br/>
+        <div className="errorPseudo error"></div>
         {errors?.pseudo && <p className="error">{errors.pseudo.message}</p>}
         <label htmlFor="email">Email</label>
         <br />
@@ -78,6 +87,7 @@ const SignUpForm = () => {
             },
           })}
         />
+        <div className="emailError error"></div>
         {errors?.email && <p className="error">{errors.email.message}</p>}
         <br />
         <label htmlFor="password">Mot de passe</label>

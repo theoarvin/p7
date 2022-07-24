@@ -14,7 +14,7 @@ const password = require('../middleware/password');
 const auth = require ('../middleware/auth');
 
 // auth
-router.post('/signup',controleEmail,password, authCtrl.signup);
+router.post('/signup',controleEmail,password,authCtrl.signup);
 router.post('/login',apiLimiter, authCtrl.login);
 
 // user

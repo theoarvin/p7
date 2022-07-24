@@ -1,7 +1,6 @@
 // importation de bcrypt pour hasher le password
 const bcrypt = require('bcrypt');
 
-
 const dotenv = require("dotenv");
 dotenv.config();
 
