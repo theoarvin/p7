@@ -7,12 +7,14 @@ import Trending from '../../pages/Trending';
 const Index = () => {
   return (
    <BrowserRouter>
+      
       <Routes>
         <Route path='/home' element={<Home />}/>
         <Route path='/' element={<Profil />}/>
         <Route path='/trending' element={<Trending />}/>
         <Route path='*' element={<Profil />}/>
       </Routes>
+      
    </BrowserRouter>
   );
 };

@@ -1,0 +1,43 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 740px;
+
+    .container__block{
+    width: 40%;
+    height: 500px;
+    background-color: #f2f2f2;
+    opacity: 1;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    @media (max-width: 1100px) {
+        width: 60%;
+    }
+    @media (max-width:825px) {
+        width: 75%;
+    }
+    ul{
+        display: flex;
+        justify-content: space-around;
+    }
+       button{
+        width: 50%;
+        height: 51px;
+        background-color: #f2f2f2;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+        font-weight: bold;
+        border: 1px solid #dddfe2;
+       }
+       .active-btn{
+        
+        background-color:$color-3;
+        box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+        color: #fff;
+        border: 1px solid #dddfe2;
+        
+       }
+    }
+}

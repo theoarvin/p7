@@ -1,12 +1,21 @@
-import React from 'react';
-
+import React, { useContext, useEffect, useState } from 'react';
 import Routes from "./components/Routes";
+import { UidContext } from './contexts/AppContext';
 
 const App = () => {
+
+  const [uid,setUid] = useState(null);
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    const jwt = localStorage.getItem("jwt");
+    setUid(user)
+    console.log(uid)
+  }, [uid])
+;
   return (
-    <div>
-      <Routes />
-    </div>
+    <UidContext.Provider value={uid}>
+       <Routes />
+    </UidContext.Provider> 
   );
 };
 

@@ -21,14 +21,12 @@ const Log = () => {
         <div className='container'>
             <div className='container__block'>
                 <ul>
-                    <button onClick={handleModals} id="register" className={signUpModal ? "active-btn" : null}>S'inscrire</button>
-                    <button onClick={handleModals} id="login" className={signInModal ? "active-btn" : null}>Se connecter</button>
-                </ul>
-                
+                    <button onClick={handleModals} id="register" className={signUpModal ? "active-btn" : null}>Inscription</button>
+                    <button onClick={handleModals} id="login" className={signInModal ? "active-btn" : null}>Connection</button>
+                </ul>         
                     {signUpModal && <SignUpForm />}
                     {signInModal && <SignInForm />}
-                
-                
+                    
             </div>
         </div>
     );

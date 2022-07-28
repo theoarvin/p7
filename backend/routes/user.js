@@ -10,11 +10,10 @@ const userCtrl = require('../controllers/user');
 
 const apiLimiter = require('../middleware/rate-limit');
 const controleEmail = require('../middleware/controleEmail');
-const password = require('../middleware/password');
 const auth = require ('../middleware/auth');
 
 // auth
-router.post('/signup',controleEmail,password,authCtrl.signup);
+router.post('/signup',authCtrl.signup);
 router.post('/login',apiLimiter, authCtrl.login);
 
 // user
