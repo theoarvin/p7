@@ -40,9 +40,7 @@ const SignInForm = () => {
            const token = res.data.token
            localStorage.setItem("user",userId);
            localStorage.setItem("jwt",token);
-
-           console.log(token);
-          // window.location = "/home";
+           window.location = "/home";
         }
       })
       .catch((err) => {

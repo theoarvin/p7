@@ -1,14 +1,22 @@
-import React from 'react';
-import Nav from '../components/Nav';
+import React, { useContext } from "react";
+import Header from "../components/Header";
+import Log from "../components/Log";
+import Nav from "../components/Nav";
+import { UidContext } from "../contexts/AppContext";
+import Thread from "../components/Thread";
 
 const Home = () => {
-    return (
-        <div className='filActu'>
-            <Nav/>
-            <div className='test'></div>
-            <div className="test2"></div>
-        </div>
-    );
+  const uid = useContext(UidContext);
+
+  return uid ? (
+    <div className="filActu">
+      <Header />
+      <Nav />
+      <Thread />
+    </div>
+  ) : (
+    <Log />
+  );
 };
 
 export default Home;

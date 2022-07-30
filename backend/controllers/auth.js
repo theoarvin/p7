@@ -37,7 +37,7 @@ exports.login = (req, res, next) => {
         return res.status(200).json({ errorEmail: 'Utilisateur non trouvé !' });
       }
       if (user.disable == true){
-        return res.status(401).json({ error: 'Utilisateur désactivé !' });
+        return res.status(200).json({ errorEmail: 'Utilisateur désactivé !' });
       }
       bcrypt.compare(req.body.password, user.password)
         .then(valid => {

@@ -1,20 +1,18 @@
 import React from 'react';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Home from '../../pages/Home';
-import Profil from '../../pages/Profil';
+import FormPage from '../../pages/FormPage';
 import Trending from '../../pages/Trending';
 
 const Index = () => {
   return (
-   <BrowserRouter>
-      
+   <BrowserRouter> 
       <Routes>
         <Route path='/home' element={<Home />}/>
-        <Route path='/' element={<Profil />}/>
+        <Route path='/' element={<FormPage />}/>
         <Route path='/trending' element={<Trending />}/>
-        <Route path='*' element={<Profil />}/>
+        <Route path='*' element={<FormPage />}/>
       </Routes>
-      
    </BrowserRouter>
   );
 };
