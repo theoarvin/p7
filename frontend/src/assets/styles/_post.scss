@@ -1,0 +1,26 @@
+.post{
+
+    width: 80%;
+    margin: auto;
+    height: auto;
+    margin-top: 40px;
+    background-color: #f2f2f2;
+    border-radius: 7px;
+    border: 1px solid #dddfe2; 
+    padding: 20px 10px 20px 10px;
+    p{ 
+        
+        height: auto;
+        word-wrap: break-word;
+
+    }
+}
+.boutonDelete{
+    margin-top: 15px;
+    width: 75px;
+    height: 25px;
+    border-radius: 7px;
+    color: #fff;
+    background-color: $color-3;
+    margin-left: 8px;
+}

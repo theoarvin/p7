@@ -12,7 +12,7 @@ const Nav = () => {
              
             <nav>
                 <Link to="/"><i className="fa-solid fa-house-user"></i>Acceuil</Link>
-                <Link to="/"><i className="fa-solid fa-user"></i>Profil</Link>
+                <Link to="/profil"><i className="fa-solid fa-user"></i>Profil</Link>
                 <Link onClick={handleLogout} to="/"><i className="fa-solid fa-arrow-right-from-bracket"></i>Se déconnecter</Link>
             </nav>
         </div>

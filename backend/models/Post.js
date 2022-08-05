@@ -1,32 +1,27 @@
 const mongoose = require ('mongoose');
 
+// création du modèle de données pour les posts
 const PostSchema = new mongoose.Schema(
    {
-   
-    titre : {
+    posterId: {
         type: String,
-        required: true,
-        maxlength: 25
-    },
+        required: true
+      },
     message : {
         type: String,
         trim: true,
-        maxLength: 500
+        maxLength: 500,
+        required: true
     },
     pictureUrl : {
         type: String,
         default: " "
     },
-    likes : {
-        type: Number,
-        required: true,
-        default: 0
-    },
-    usersLiked : {
+    likers: {
         type: [String],
         required: true,
-        default: []
-    }
+        default:[]
+      }
    },
    {
     timestamps: true

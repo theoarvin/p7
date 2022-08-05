@@ -12,14 +12,14 @@ const apiLimiter = require('../middleware/rate-limit');
 const controleEmail = require('../middleware/controleEmail');
 const auth = require ('../middleware/auth');
 
-// auth
+// route pour l'authentification
 router.post('/signup',authCtrl.signup);
 router.post('/login',apiLimiter, authCtrl.login);
 
-// user
+// route pour le CRUD des users
 router.get('/',userCtrl.getAllUsers);
 router.get('/:id',userCtrl.userInfo);
 router.put('/disable/:id',auth,userCtrl.desactivateUser);
-router.put('/admin/:id',userCtrl.adminUser)
+//router.put('/admin/:id',auth,userCtrl.adminUser)
 
 module.exports = router;

@@ -29,9 +29,11 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 
+app.use('/images', express.static(path.join(__dirname, 'images')));
 // route 
 
 app.use('/api/user', userRoutes);
 app.use('/api/post',postRoutes);
+
 
 module.exports = app;

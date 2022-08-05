@@ -1,7 +1,7 @@
 
 const passwordValidator = require('password-validator');
 
-// création du schéma
+// middleware pour schema du password
 const pseudoSchema = new passwordValidator();
 
 // schéma que doit respecter le mot de passe

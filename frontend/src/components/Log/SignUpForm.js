@@ -29,8 +29,7 @@ const SignUpForm = () => {
     password: yup
       .string("Veulliez ajouter des lettres")
       .required("Ce champ est obligatoire")
-      .min(4, "Votre mot de passe est trop court")
-      .max(12, "Votre mot de passe est trop long"),
+      .min(4, "Votre mot de passe est trop court"),
   });
   const {
     register,

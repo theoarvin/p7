@@ -2,11 +2,13 @@
 const UserModel = require('../models/User');
 const ObjectID = require('mongoose').Types.ObjectId;
 
+// controller pour afficher tous les utilisateurs 
 exports.getAllUsers = async (req,res) => {
     const users = await UserModel.find().select('-password');
     res.status(200).json(users)
 };
 
+// controller pour afficher un utilisateur
 exports.userInfo =  (req,res) => {
    if(!ObjectID.isValid(req.params.id))
    return res.status(400).send('ID unknow :' + req.params.id)
@@ -17,6 +19,7 @@ exports.userInfo =  (req,res) => {
    }).select('-password');
 };
 
+// controller pour désactiver un utilisateur 
 exports.desactivateUser = (req,res) => {
     if(!ObjectID.isValid(req.params.id))
     return res.status(400).send('ID unknow :' + req.params.id)
@@ -25,6 +28,7 @@ exports.desactivateUser = (req,res) => {
         .catch(error => res.status(400).json({ error }));  
 };
 
+// controller pour mettre un utilisateur en admin 
 exports.adminUser = (req,res) => {
    if(!ObjectID.isValid(req.params.id))
    return res.status(400).send('ID unknow :' + req.params.id)

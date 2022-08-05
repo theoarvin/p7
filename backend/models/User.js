@@ -1,12 +1,14 @@
 const mongoose = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator');
-// création du modèle de données pour le login
+
+// création du modèle de données pour le user
 const userShema = mongoose.Schema({
     pseudo: { type: String, maxLength: 10, required: true , unique: true},
     email: { type: String, required : true, unique: true },
     password: { type: String, required: true },
     disable: { type: Boolean, required: true, default: false},
-    admin : { type: Boolean, required: true, default: false}
+    admin : { type: Boolean, required: true, default: false},
+    likes: { type: [String],default:[]}
 });
 
 // securité pour ne pas enregistrer 2 fois la même donnée

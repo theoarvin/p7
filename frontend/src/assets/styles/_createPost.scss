@@ -1,0 +1,52 @@
+.formPost{
+    margin: 30px auto auto auto ;
+    
+    width: 80%;
+    height: auto;
+    border: 1px solid #dddfe2;
+    background-color: #f2f2f2;
+    border-radius: 7px;
+    color: $color-3;
+    text-align: center;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+}
+.formPost{
+    
+    textarea {
+        height: auto;
+        width: 90%;
+        font-size: 1.4rem;
+        padding: 12px 15px;
+        border-radius: 7px;
+        resize: none;
+        margin-top:15px ;
+      }
+
+}
+.footerForm{
+    display: flex;
+    justify-content:space-between;
+    margin: 25px;
+  
+}
+   
+
+
+#fileUpload{
+   
+   width: 120px;
+   //position: absolute;
+  
+   cursor:pointer;
+}
+
+.send{
+    width: 90px;
+    height: 25px;
+    border-radius: 15px;
+    background-color:$color-3;
+    color: #fff;
+    font-weight: bold;
+    border: 1px solid #dddfe2;
+    cursor: pointer;
+}
