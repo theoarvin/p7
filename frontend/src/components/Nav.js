@@ -11,9 +11,9 @@ const Nav = () => {
         <div className='menu'>
              
             <nav>
-                <Link to="/"><i className="fa-solid fa-house-user"></i>Acceuil</Link>
-                <Link to="/profil"><i className="fa-solid fa-user"></i>Profil</Link>
-                <Link onClick={handleLogout} to="/"><i className="fa-solid fa-arrow-right-from-bracket"></i>Se déconnecter</Link>
+                <Link to="/"><i className="fa-solid fa-house-user"></i><p>Acceuil</p></Link>
+                <Link to="/profil"><i className="fa-solid fa-user"></i><p>Profil</p></Link>
+                <Link onClick={handleLogout} to="/"><i className="fa-solid fa-arrow-right-from-bracket"></i><p>Se déconnecter</p></Link>
             </nav>
         </div>
        

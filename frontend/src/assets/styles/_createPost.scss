@@ -1,6 +1,5 @@
 .formPost{
     margin: 30px auto auto auto ;
-    
     width: 80%;
     height: auto;
     border: 1px solid #dddfe2;
@@ -9,6 +8,9 @@
     color: $color-3;
     text-align: center;
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    @media (max-width :830px){
+       width: 90%;
+    }
 }
 .formPost{
     

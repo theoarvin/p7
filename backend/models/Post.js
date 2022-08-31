@@ -7,6 +7,10 @@ const PostSchema = new mongoose.Schema(
         type: String,
         required: true
       },
+    pseudo: {
+      type: String,
+      required: true
+    },
     message : {
         type: String,
         trim: true,
@@ -15,7 +19,7 @@ const PostSchema = new mongoose.Schema(
     },
     pictureUrl : {
         type: String,
-        default: " "
+        default: null
     },
     likers: {
         type: [String],

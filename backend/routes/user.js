@@ -20,6 +20,6 @@ router.post('/login',apiLimiter, authCtrl.login);
 router.get('/',userCtrl.getAllUsers);
 router.get('/:id',userCtrl.userInfo);
 router.put('/disable/:id',auth,userCtrl.desactivateUser);
-//router.put('/admin/:id',auth,userCtrl.adminUser)
+router.put('/admin/:id',userCtrl.adminUser)
 
 module.exports = router;

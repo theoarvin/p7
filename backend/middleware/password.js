@@ -19,6 +19,7 @@ module.exports = (req, res, next) => {
 }
 
 
+
 /*
 .is().min(8)                                    // Minimum length 8
 .is().max(100)                                  // Maximum length 100

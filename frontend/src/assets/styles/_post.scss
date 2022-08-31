@@ -1,18 +1,33 @@
 .post{
 
-    width: 80%;
+    width: 85%;
     margin: auto;
     height: auto;
-    margin-top: 40px;
-    background-color: #f2f2f2;
-    border-radius: 7px;
-    border: 1px solid #dddfe2; 
+    background-color: rgb(231, 233, 234);
+    margin-bottom: 5px;
+    border: 1px solid #999; 
     padding: 20px 10px 20px 10px;
-    p{ 
-        
+    @media (max-width :830px){
+        width: 100%;
+    }
+    .date{
+        color: #999;
+        font-size: 12px;
+        margin-top: -12px;
+    }
+    .textPost{ 
         height: auto;
+        width: 100%;
+        min-height: 40px;
+        margin-bottom: 3px;
+        padding: 3px;
         word-wrap: break-word;
-
+        font-size: 14px;
+    }
+    img{
+        width: 100%;
+        height: 270px;
+        object-fit: cover;
     }
 }
 .boutonDelete{
