@@ -8,7 +8,7 @@ Back-end : NODEJS
 
 pour les variables d'environnement, remplir le fichier .env (suivre .env.example)
 
-******\******* USER ********\*********
+************* USER *****************
 
 la route POST pour créer un compte
 http://localhost:3000/api/user/signup

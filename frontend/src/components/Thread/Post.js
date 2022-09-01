@@ -23,7 +23,7 @@ const Post = (props) => {
   const handlePicture = (e) => {
     setFileUpdate(e.target.files[0]);
   };
-
+  
   const updateItem = async () => {
     axios({
       method: "put",
@@ -40,7 +40,7 @@ const Post = (props) => {
       })
       .catch((err) => console.log(err));
   };
-
+  
   const DateParser = (num) => {
     let options = {
       hour: "2-digit",

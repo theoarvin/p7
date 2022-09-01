@@ -9,29 +9,21 @@ const CreatePost = (props) => {
   const [message, setMessage] = useState("");
   const [file, setFile] = useState();
   const jwt = localStorage.getItem("jwt");
-  
- 
-  
-  
-  
-  
   const handlePost = async (e) => {
-
-    if (message ) {
-      
+    if (message) {
       const data = new FormData();
       data.append("userId", uid);
       data.append("pseudo", props.pseudo);
       data.append("message", message);
       if (file) data.append("post_image", file);
-      
+
       axios({
         method: "post",
         url: `${process.env.REACT_APP_API_URL}api/post/create`,
         headers: {
           Authorization: "Bearer " + jwt,
         },
-        
+
         data: data,
       })
         .then((res) => {
@@ -53,10 +45,7 @@ const CreatePost = (props) => {
     setMessage("");
     setFile("");
   };
- 
-  
 
-  
   return (
     <div>
       <div className="formPost">

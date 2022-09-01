@@ -15,15 +15,10 @@ module.exports = (req, res, next) => {
     const userId = decodedToken.userId;
     req.tokenUserId = userId;
     req.admin = decodedToken.admin;
+    console.log(req.body);
    
-    // ici on vérifie si le userId de la requête correspond bien avec celui du token
-    if (req.body.userId && req.body.userId !== userId) {
-      throw "Invalid user ID";
-    } else if (req.body.userId && req.body.userId === userId) {
-      next();
-    } else {
-      next();
-    }
+    next();
+    
   } catch {
     res.status(401).json({
       error: new Error("utilisateur non authentifié"),
