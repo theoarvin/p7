@@ -71,6 +71,7 @@ const Post = (props) => {
                 <textarea
                   defaultValue={props.value.message}
                   onChange={(e) => setTextUpdate(e.target.value)}
+                  className="updateText"
                 />
                 {props.value.pictureUrl !== null ? (
                    <input
@@ -78,15 +79,17 @@ const Post = (props) => {
                    id="fileUpload"
                    name="file"
                    onChange={(e) => handlePicture(e)}
+                   
                  />
                 ) : ( null)}
                
-                <button onClick={updateItem}>Valider</button>
+                <button className="valideUpdate" onClick={updateItem}><i className="fa-sharp fa-solid fa-paper-plane"></i></button>
+               
               </div>
             )}
 
             {props.value.pictureUrl !== null ? (
-              <img src={props.value.pictureUrl} />
+              <img className="imgPost" src={props.value.pictureUrl} />
             ) : null}
             <LikeButton value={props} />
             { props.value.posterId == uid || props.user == true ? (

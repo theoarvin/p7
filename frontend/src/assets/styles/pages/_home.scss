@@ -5,6 +5,7 @@
     border-right: 1px solid #dddfe2; 
     position: fixed;
     background-color: #fff;
+    
     @media (max-width :830px){
        width: 100px;
     }
@@ -44,7 +45,6 @@
 .filActu{
     width: 100%;
     display: flex;
-    
 }
 .blockActu{
     width: 70%;

@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 //importation de la base de données 
 const mongoose = require('mongoose');
-mongoose.connect(`mongodb+srv://${process.env.DB_USER_PASS}@cluster0.1ch0yg8.mongodb.net/Groupomania?retryWrites=true&w=majority`,
+mongoose.connect(`mongodb+srv://${process.env.DB_USER_PASS}@${process.env.DB_CLUSTER}.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))

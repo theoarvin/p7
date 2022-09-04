@@ -61,11 +61,11 @@ const LikeButton = (props) => {
   return (
     <div className="like-container">
       {uid && liked === false ? (
-        <i class="fa-regular fa-heart" onClick={like}></i>
+        <i className="fa-regular fa-heart" onClick={like}></i>
       ) : (
-        <i class="fa-solid fa-heart" onClick={unlike}></i>
+        <i className="fa-solid fa-heart" onClick={unlike}></i>
       )}
-      <span>{postLike}</span>
+      <span className="likeNumber">{postLike}</span>
     </div>
   );
 };
