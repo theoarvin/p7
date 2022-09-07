@@ -8,8 +8,7 @@ const Nav = () => {
     }
 
     return (
-        <div className='menu'>
-             
+        <div className='menu'>   
             <nav>
                 <Link to="/"><i className="fa-solid fa-house-user"></i><p>Accueil</p></Link>
                 <Link to="/profil"><i className="fa-solid fa-user"></i><p>Profil</p></Link>
