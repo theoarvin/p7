@@ -1,13 +1,13 @@
 // importation de express
-const express = require('express');
-const mongoose = require('./db/db');
+const express = require("express");
+const mongoose = require("./db/db");
 const dotenv = require("dotenv");
 dotenv.config();
-const path = require('path');
-const helmet = require('helmet');
+const path = require("path");
+const helmet = require("helmet");
 // importation des routes
-const userRoutes = require('./routes/user');
-const postRoutes = require('./routes/post');
+const userRoutes = require("./routes/user");
+const postRoutes = require("./routes/post");
 
 const app = express();
 
@@ -26,15 +26,11 @@ app.use((req, res, next) => {
   next();
 });
 
-
 app.use(express.json());
 
+app.use("/images", express.static(path.join(__dirname, "images")));
 
-app.use('/images', express.static(path.join(__dirname, 'images')));
-
-
-app.use('/api/user', userRoutes);
-app.use('/api/post',postRoutes);
-
+app.use("/api/user", userRoutes);
+app.use("/api/post", postRoutes);
 
 module.exports = app;

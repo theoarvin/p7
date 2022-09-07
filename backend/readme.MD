@@ -28,7 +28,7 @@ http://localhost:3000/api/user/disable/:id
 la route PUT pour mettre un utilisateur en admin
 http://localhost:3000/api/user/admin/:id
 
-******\******* POST ********\*********
+************* POST ***************
 
 la route GET pour afficher tous les post
 http://localhost:3000/api/post/
@@ -37,13 +37,16 @@ la route GET pour afficher un post avec son id
 http://localhost:3000/api/post/:id
 
 la route POST pour créer un post
-http://localhost:3000/api/post/
+http://localhost:3000/api/post/create
 
 la route PUT pour modifier un post
-http://localhost:3000/api/post/:id
+http://localhost:3000/api/post/update/:id
 
 la route DELETE pour effacer un post
-http://localhost:3000/api/post/:id
+http://localhost:3000/api/post/delete/:id
 
-la route POST pour liker un post
-http://localhost:3000/api/post/:id/like
+la route PATCH pour liker un post
+http://localhost:3000/api/post/like/:id
+
+la route PATCH pour unliker un post
+http://localhost:3000/api/post/unlike/:id

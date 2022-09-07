@@ -9,7 +9,7 @@ const App = () => {
     const user = localStorage.getItem("user");
     const jwt = localStorage.getItem("jwt");
     setUid(user)
-    
+    console.log(uid)
   }, [uid])
 ;
   return (
