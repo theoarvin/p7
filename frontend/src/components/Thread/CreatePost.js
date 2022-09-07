@@ -9,6 +9,7 @@ const CreatePost = (props) => {
   const [message, setMessage] = useState("");
   const [file, setFile] = useState();
   const jwt = localStorage.getItem("jwt");
+  
   const handlePost = async (e) => {
     if (message) {
       const data = new FormData();
@@ -60,13 +61,27 @@ const CreatePost = (props) => {
           <div className="iconePicture">
             <input
               type="file"
-              id="fileUpload"
-              name="file"
+              className="input-file"
+              id="file"
               onChange={(e) => handlePicture(e)}
             />
+            <label 
+            htmlFor="file"
+            className="label-file"
+            type="file"
+            >
+             <i className="fa-solid fa-image"></i> 
+            </label>
+            {  file ?  (
+            <p className="fileText">{file.name.substr(-4)}</p>
+          ) : (
+            null
+          )}
           </div>
           <div className="btn-send">
+     
             {message || file ? (
+              
               <button className="cancel" onClick={cancelPost}>
                 Annuler
               </button>

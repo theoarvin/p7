@@ -32,16 +32,31 @@
   
 }
    
-
-
-#fileUpload{
-   
-   width: 120px;
-   //position: absolute;
-  
-   cursor:pointer;
+.iconePicture{
+    display: flex;
+}
+// on personnalise le label comme on veut
+.label-file {
+    cursor: pointer;
+    color: $color-3;
+    font-weight: bold;
+    font-size: 22px;
+    margin-left: 5px;
+    
+}
+.label-file:hover {
+    color: #25a5c4;
 }
 
+// et on masque le input
+.input-file {
+    display: none;
+    
+}
+.fileText{
+    width: 50px;
+    height: 20px; 
+}
 .send{
     width: 90px;
     height: 25px;
@@ -51,4 +66,10 @@
     font-weight: bold;
     border: 1px solid #dddfe2;
     cursor: pointer;
+}
+.send:hover {
+    background-color: #25a5c4;
+}
+.cancel{
+    margin-right: 9px;
 }

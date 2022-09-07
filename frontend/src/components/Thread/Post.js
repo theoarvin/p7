@@ -7,7 +7,6 @@ import DeletePost from "./DeletePost";
 import LikeButton from "./LikeButton";
 
 const Post = (props) => {
-  
   const uid = useContext(UidContext);
   const [isUpdated, setIsUpdated] = useState(false);
   const [textUpdate, setTextUpdate] = useState(props.value.message);
@@ -15,7 +14,6 @@ const Post = (props) => {
   const jwt = localStorage.getItem("jwt");
   const id = props.value._id;
   const data = new FormData();
-  
 
   data.append("message", textUpdate);
   data.append("post_image", fileUpdate);
@@ -23,7 +21,7 @@ const Post = (props) => {
   const handlePicture = (e) => {
     setFileUpdate(e.target.files[0]);
   };
-  
+
   const updateItem = async () => {
     axios({
       method: "put",
@@ -35,12 +33,12 @@ const Post = (props) => {
     })
       .then((res) => {
         //props.updatePost(res.data)
-        props.getPost()
-        setIsUpdated(false)
+        props.getPost();
+        setIsUpdated(false);
       })
       .catch((err) => console.log(err));
   };
-  
+
   const DateParser = (num) => {
     let options = {
       hour: "2-digit",
@@ -58,57 +56,65 @@ const Post = (props) => {
     return date.toString();
   };
 
- 
-      return (
-        <div className="post">
-          <div className="post-block">
-            <p className="date">{DateParser(props.value.createdAt)}</p>
-            <h3>{props.value.pseudo}</h3>
-            {isUpdated == false ? (
-              <p className="textPost">{props.value.message}</p>
-            ) : (
-              <div className="updatePost">
-                <textarea
-                  defaultValue={props.value.message}
-                  onChange={(e) => setTextUpdate(e.target.value)}
-                  className="updateText"
-                />
-                {props.value.pictureUrl !== null ? (
-                   <input
-                   type="file"
-                   id="fileUpload"
-                   name="file"
-                   onChange={(e) => handlePicture(e)}
-                   
-                 />
-                ) : ( null)}
-               
-                <button className="valideUpdate" onClick={updateItem}><i className="fa-sharp fa-solid fa-paper-plane"></i></button>
-               
-              </div>
-            )}
-
-            {props.value.pictureUrl !== null ? (
-              <img className="imgPost" src={props.value.pictureUrl} />
-            ) : null}
-            <LikeButton value={props} />
-            { props.value.posterId == uid || props.user == true ? (
-              <>
-                <button
-                  className="boutonDelete"
-                  onClick={() => setIsUpdated(!isUpdated)}
-                >
-                  Modifier
-                </button>
-                <DeletePost value={props} />
+  return (
+    <div className="post">
+      <div className="post-block">
+        <p className="date">{DateParser(props.value.createdAt)}</p>
+        <h3>{props.value.pseudo}</h3>
+        {isUpdated == false ? (
+          <p className="textPost">{props.value.message}</p>
+        ) : (
+          <div className="updatePost">
+            <textarea
+              defaultValue={props.value.message}
+              onChange={(e) => setTextUpdate(e.target.value)}
+              className="updateText"
+            />
+            <div className="updateBlock">
+              {props.value.pictureUrl !== null ? (
+                <>
+                  <input
+                    type="file"
+                    className="input-file"
+                    id="fileUpload"
+                    onChange={(e) => handlePicture(e)}
+                  />
+                  <label
+                    htmlFor="fileUpload"
+                    className="label-file"
+                    type="file"
+                  >
+                    <i className="fa-solid fa-image"></i>
+                  </label>
                 </>
-             
-             ): null}
+              ) : null}
+              
+              <button className="valideUpdate" onClick={updateItem}>
+                <i className="fa-sharp fa-solid fa-paper-plane"></i>
+              </button>
+              </div>
+            
           </div>
-        </div>
-      );
-    }
-  
+        )}
 
+        {props.value.pictureUrl !== null ? (
+          <img className="imgPost" src={props.value.pictureUrl} />
+        ) : null}
+        <LikeButton value={props} />
+        {props.value.posterId == uid || props.user == true ? (
+          <>
+            <button
+              className="boutonDelete"
+              onClick={() => setIsUpdated(!isUpdated)}
+            >
+              Modifier
+            </button>
+            <DeletePost value={props} />
+          </>
+        ) : null}
+      </div>
+    </div>
+  );
+};
 
 export default Post;

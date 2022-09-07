@@ -3,10 +3,6 @@ import { UidContext } from "../contexts/AppContext";
 import axios from "axios";
 
 const Profil = () => {
-  
-
-  
-
   return (
     <div className="profil">
       <h2>

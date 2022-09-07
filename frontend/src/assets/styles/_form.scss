@@ -14,7 +14,12 @@
         border: 1px solid #dddfe2;
         color: #1d2129;
         text-align: center;
+        @media (max-width :480px){
+            font-size: 17px;
+            width: 180px;
+         }
     }
+    
     .btn{
         margin-top: 20px;
         width: 250px;
@@ -27,7 +32,10 @@
         font-size: 24px;
         font-weight: bold;
         box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
-        
+        @media (max-width :480px){
+            font-size: 17px;
+            width: 180px;
+         }
        }
 }
 .error{

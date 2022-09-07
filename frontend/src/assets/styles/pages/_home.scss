@@ -9,10 +9,13 @@
     @media (max-width :830px){
        width: 100px;
     }
+    @media (max-width :450px){
+        width: 80px;
+     }
     nav{
         display: flex;
         flex-direction: column;
-        
+       
         
         a{
             margin-top: 60px;
@@ -29,6 +32,11 @@
                 width: 90px;
                 margin-left: 40px;
             }
+            @media (max-width :450px){
+                width: 40px;
+                margin-left: 30px;
+             }
+            
             i{
                 margin-right: 10px;
                 
@@ -48,7 +56,6 @@
 }
 .blockActu{
     width: 70%;
-    height: 1900px;
     display: block;
     margin-left: 255px;
     display: flex;
@@ -57,6 +64,10 @@
        margin-left: 100px;
        width: 100%;
     }
+    @media (max-width :450px){
+       
+        margin-left: 80px;
+     }
     .blockPost{
        border: 1px solid #dddfe2; 
        margin-left: 20px;
@@ -67,16 +78,17 @@
        box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
        @media (max-width :830px){
         width: 90%;
+        margin-left: 10px;
     }
        .filPost{
         width: 90%;
-        height: 1200px;
-        overflow: scroll;
-        margin: auto;
-        margin-top: 70px;
+        height: auto;        
+        margin: 70px auto 90px auto;
         
        }
+       
     }
+    
 }
 .userInfos{
     h2{

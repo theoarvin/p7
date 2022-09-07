@@ -9,8 +9,6 @@ module.exports = (req, res, next) => {
     const token = req.headers.authorization.split(" ")[1]; // <-- ici on précise [1] pour bien ciblé le token et non le mot "Bearead"
     // on utilise jwt.verify(token, 'TOKEN') afin de vérifier notre token pour être sur qu'il correspond a notre token encodé
     const decodedToken = jwt.verify(token, `${process.env.TOKEN_SECRET}`);
-   
-    
     // ici on récupère le userId
     const userId = decodedToken.userId;
     req.tokenUserId = userId;
