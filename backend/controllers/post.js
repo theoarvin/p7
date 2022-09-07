@@ -29,11 +29,7 @@ exports.createPost = async (req, res) => {
           req.file.filename
         }`,
       }
-    : {
-        message: req.body.message,
-        posterId: req.body.userId,
-        pseudo: req.body.pseudo,
-      };
+    : { message: req.body.message, posterId: req.body.userId , pseudo: req.body.pseudo};
   const newPost = new PostModel({
     ...postObject,
   });
@@ -50,12 +46,9 @@ exports.createPost = async (req, res) => {
 exports.updatePost = (req, res) => {
   PostModel.findOne({ _id: req.params.id })
     .then((objet) => {
-      if (req.tokenUserId != objet.posterId && req.admin == false) {
+      if (req.tokenUserId != objet.posterId  && req.admin == false) {
         res.status(401).json({ message: "Not authorized" });
-      } else if (
-        req.tokenUserId == objet.posterId ||
-        (req.tokenUserId != objet.posterId && req.admin == true)
-      ) {
+      } else if (req.tokenUserId == objet.posterId || req.tokenUserId != objet.posterId && req.admin == true) {
         if (req.file) {
           // récupération du nom de la photo à supprimer dans la base de données
           const filename = objet.pictureUrl.split("/post/")[1];
@@ -70,26 +63,33 @@ exports.updatePost = (req, res) => {
         // l'objet qui va être mis à jour dans la base de données
         // deux cas possible
         const postObject = req.file
+        
           ? {
               ...req.body,
               pictureUrl: `${req.protocol}://${req.get("host")}/images/post/${
                 req.file.filename
               }`,
+
+              
+              
             }
           : {
-              message: req.body.message,
+              message : req.body.message, 
+              
+          
             };
-
+          
         // modifications qui seront envoyé dans la base de données
         PostModel.updateOne(
           { _id: req.params.id },
-          { ...postObject, _id: req.params.id }
+          { ...postObject, _id: req.params.id },
+          
         )
           .then(() =>
             res.status(200).json({
               message: "objet modifié",
               id: req.params.id,
-              objet,
+              objet
             })
           )
           .catch((error) => res.status(400).json({ error }));
@@ -102,12 +102,12 @@ exports.updatePost = (req, res) => {
 exports.deletePost = (req, res, next) => {
   PostModel.findOne({ _id: req.params.id })
     .then((objet) => {
-      if (req.tokenUserId != objet.posterId && req.admin == false) {
+      if (req.tokenUserId != objet.posterId  && req.admin == false) {
+     
         res.status(401).json({ message: "Not authorized" });
-      } else if (
-        req.tokenUserId == objet.posterId ||
-        (req.tokenUserId != objet.posterId && req.admin == true)
-      ) {
+      } 
+      
+      else if (req.tokenUserId == objet.posterId || req.tokenUserId != objet.posterId && req.admin == true) {
         if (objet.pictureUrl != null) {
           // récupération du nom de la photo à supprimer dans la base de données
           const filename = objet.pictureUrl.split("/post/")[1];
@@ -115,12 +115,12 @@ exports.deletePost = (req, res, next) => {
           //suppression de l'image dans le dossier images
           fs.unlink(`images/post/${filename}`, () => {
             PostModel.deleteOne({ _id: req.params.id })
-              .then(() => res.status(200).json(req.params.id))
+              .then(() => res.status(200).json( req.params.id ))
               .catch((error) => res.status(400).json({ error }));
           });
         } else if (objet.pictureUrl == null) {
           PostModel.deleteOne({ _id: req.params.id })
-            .then(() => res.status(200).json(req.params.id))
+            .then(() => res.status(200).json(req.params.id ))
             .catch((error) => res.status(400).json({ error }));
         }
       }
